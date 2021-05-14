@@ -29,7 +29,7 @@ router.post("/:lang/sendMessage", (req, res) => {
     
         var mailOptions = {
           from: 'expotimbuildinglibya@hotmail.com',
-          to: 'qwe.emad@hotmail.com',
+          to: 'emad.khatrush@exioslibya.com',
           subject: req.body.subject,
           html: `<h3> Message from ${req.body.fullName}</h3> <br>
           <p><strong> phone:</strong> ${req.body.phone || "Empty"} </p>
