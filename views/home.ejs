@@ -1,0 +1,555 @@
+<!doctype html>
+<html>
+  <head>
+    <title> <%= lang.home.exiosCompany %>  </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="css/aos.css" type="text/css">
+
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  
+
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+   
+    
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col-6 col-xl-2">
+            <a href="#" class="h2 mb-0"> <img style="width: 160px; height: 70px;" src="assets/images/exios-logo.png"> </a>
+          </div>
+
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li><a href="#home-section" class="nav-link"> <%= lang.navbar.home %> </a></li>
+                <li>
+                  <a href="#about-section" class="nav-link"><%= lang.navbar.aboutUs %></a>
+                </li>
+                <li>
+                  <a href="#services-section" class="nav-link"><%= lang.navbar.ourService %></a>
+                </li>
+                <li><a href="#contact-section" class="nav-link"><%= lang.navbar.contactUs %></a></li>
+                <li>
+                  <a href="/<%= lang.currentLang === 'en' ? 'ar' : 'en' %>"> 
+                    <% if(lang.currentLang === 'en'){ %>
+                    <img width="40px" height="40px" src="assets/images/libya.png" /> Arabic 
+                   <% }else{ %>
+                    <img width="40px" height="40px" src="assets/images/united-kingdom.png" /> English
+                   <% } %> 
+                  </a>
+                </li>
+                <li class="social"><a href="https://www.facebook.com/exioscompany" target="_blank" class="nav-link"><span class="icon-facebook"></span></a></li>
+              </ul>
+            </nav>
+          </div>
+
+
+          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+
+        </div>
+      </div>
+      
+    </header>
+
+    <div class="site-blocks-cover overlay" style="background-image: url(assets/images/home1.jpg);" data-aos="fade" id="home-section">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+
+          <div class="col-md-10 mt-lg-5 text-center">
+            <div class="single-text owl-carousel">
+              <div class="slide">
+                <h1 class="text-uppercase" data-aos="fade-up"> <%= lang.home.importAnyWhere %> </h1>
+                <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100"><%= lang.home.importAnyWhereDesc %></p>
+                <div data-aos="fade-up" data-aos-delay="100">
+                  <a href="#contact-section" class="btn  btn-primary mr-2 mb-2"> <%= lang.home.contactUs %>  </a>
+                </div>
+              </div>
+
+              <div class="slide">
+                <h1 class="text-uppercase" data-aos="fade-up"> <%= lang.home.perfectPrices %> </h1>
+                <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100"><%= lang.home.perfectPricesDesc %></p>
+                <div data-aos="fade-up" data-aos-delay="100">
+                  <a href="#contact-section" target="_blank" class="btn  btn-primary mr-2 mb-2"> <%= lang.home.contactUs %> </a>
+                </div>
+              </div>
+
+              <div class="slide">
+                <h1 class="text-uppercase" data-aos="fade-up"><%= lang.home.guarantee %></h1>
+                <p class="mb-5 desc" data-aos="fade-up" data-aos-delay="100"><%= lang.home.guaranteeDesc %></p>
+                <div data-aos="fade-up" data-aos-delay="100">
+                  <a href="#contact-section" target="_blank" class="btn  btn-primary mr-2 mb-2"><%= lang.home.contactUs %></a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+            
+        </div>
+      </div>
+
+      <a href="#next" class="mouse smoothscroll">
+        <span class="mouse-icon">
+          <span class="mouse-wheel"></span>
+        </span>
+      </a>
+    </div>  
+
+
+    <div class="site-section cta-big-image" id="about-section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-md-8 text-center">
+            <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay=""><%= lang.home.aboutUs %></h2>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100"> <%= lang.home.aboutUsDesc %>  </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="">
+            <figure class="circle-bg">
+            <img src="assets/images/img_2.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+            </figure>
+          </div>
+          <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
+            
+            <h3 class="text-black mb-4" style="font-size: 2rem; text-align: <%= lang.currentLang === "ar" ? "right": "left" %>"><%= lang.home.ourGoals %></h3>
+
+            <p style="margin-bottom: 20px; font-size: 1.3rem; text-align: <%= lang.currentLang === "ar" ? "right": "left" %>" > <%= lang.home.ourGoalsDesc %> </p>
+            
+          </div>
+        </div>    
+        
+      </div>  
+    </div>
+    
+    <section class="site-section border-bottom bg-light" id="services-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade">
+            <h2 class="section-title mb-3"><%= lang.home.ourServices %></h2>
+          </div>
+        </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <img src="assets/images/flaticon-svg/svg/exchange.svg" alt="Free Website Template by Free-Template.co" class="img-fluid w-25 mb-4">
+              </div>
+              <div>
+                <h3><%= lang.home.transferMoney %></h3>
+                <p><%= lang.home.transferMoneyDesc %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <img src="assets/images/flaticon-svg/svg/search.svg" alt="Free Website Template by Free-Template.co" class="img-fluid w-25 mb-4">
+              </div>
+              <div>
+                <h3><%= lang.home.checkGoods %></h3>
+                <p><%= lang.home.checkGoodsDesc %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <img src="assets/images/flaticon-svg/svg/cargo.svg" alt="Free Website Template by Free-Template.co" class="img-fluid w-25 mb-4">
+              </div>
+              <div>
+                <h3><%= lang.home.shipGoods %></h3>
+                <p><%= lang.home.shipGoodsDesc %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section">
+      <div class="container">
+
+        <div class="row mb-5 justify-content-center">
+          <div class="col-md-7 text-center">
+            <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay=""><%= lang.home.howItIsWork %></h2>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100"><%= lang.home.howItIsWorkDesc %></p>
+          </div>
+        </div>
+        
+        <div class="row align-items-lg-center" >
+          <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="">
+
+            <div class="owl-carousel slide-one-item-alt">
+              <img src="assets/images/call.jpg" alt="Image" class="img-fluid">
+              <img src="assets/images/agree.jpg" alt="Image" class="img-fluid">
+              <img src="assets/images/goods.jpg" alt="Image" class="img-fluid">
+              <img src="assets/images/ship.jpg" alt="Image" class="img-fluid">
+            </div>
+            <div class="custom-direction">
+              <a href="#" class="custom-prev"><span><span class="icon-keyboard_backspace"></span></span></a><a href="#" class="custom-next"><span><span class="icon-keyboard_backspace"></span></span></a>
+            </div>
+
+          </div>
+          <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
+            
+            <div class="owl-carousel slide-one-item-alt-text">
+              <div>
+                <h2 class="section-title mb-3">01. <%= lang.home.customerGoods %> </h2>
+                <p style="font-size: 1.3rem;"><%= lang.home.customerGoodsDesc %></p>
+
+                <p><a href="#contact-section" class="btn btn-primary mr-2 mb-2"> <%= lang.home.contactUs %> </a></p>
+              </div>
+              <div>
+                <h2 class="section-title mb-3">02. <%= lang.home.getApproval %></h2>
+                <p style="font-size: 1.3rem;"><%= lang.home.getApprovalDesc %></p>
+                <p><a href="#contact-section" class="btn btn-primary mr-2 mb-2"> <%= lang.home.contactUs %> </a></p>
+              </div>
+              <div>
+                <h2 class="section-title mb-3">03. <%= lang.home.startTrade %></h2>
+                <p style="font-size: 1.3rem;"><%= lang.home.startTradeDesc %></p>
+
+                <p><a href="#contact-section" class="btn btn-primary mr-2 mb-2"> <%= lang.home.contactUs %> </a></p>
+              </div>
+
+              <div>
+                <h2 class="section-title mb-3">04. <%= lang.home.shipToLibya %></h2>
+                <p style="font-size: 1.3rem;"><%= lang.home.shipToLibyaDesc %></p>
+
+                <p><a href="#contact-section" class="btn btn-primary mr-2 mb-2"> <%= lang.home.contactUs %> </a></p>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- <section class="site-section border-bottom" id="team-section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-md-8 text-center">
+            <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="">Meet Team</h2>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+          </div>
+        </div>
+        <div class="row">
+          
+
+          
+          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
+            <div class="team-member">
+              <figure>
+                <ul class="social">
+                  <li><a href="#"><span class="icon-facebook"></span></a></li>
+                  <li><a href="#"><span class="icon-twitter"></span></a></li>
+                  <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                  <li><a href="#"><span class="icon-instagram"></span></a></li>
+                </ul>
+                <img src="assets/images/person_1.jpg" alt="Image" class="img-fluid">
+              </figure>
+              <div class="p-3">
+                <h3>Kaiara Spencer</h3>
+                <span class="position">Accountant</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member">
+              <figure>
+                <ul class="social">
+                  <li><a href="#"><span class="icon-facebook"></span></a></li>
+                  <li><a href="#"><span class="icon-twitter"></span></a></li>
+                  <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                  <li><a href="#"><span class="icon-instagram"></span></a></li>
+                </ul>
+                <img src="assets/images/person_2.jpg" alt="Image" class="img-fluid">
+              </figure>
+              <div class="p-3">
+                <h3>Dave Simpson</h3>
+                <span class="position">Bank Teller</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member">
+              <figure>
+                <ul class="social">
+                  <li><a href="#"><span class="icon-facebook"></span></a></li>
+                  <li><a href="#"><span class="icon-twitter"></span></a></li>
+                  <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                  <li><a href="#"><span class="icon-instagram"></span></a></li>
+                </ul>
+                <img src="assets/images/person_3.jpg" alt="Image" class="img-fluid">
+              </figure>
+              <div class="p-3">
+                <h3>Ben Thompson</h3>
+                <span class="position">Bank Teller</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section> -->
+
+    <section class="site-section bg-light" id="contact-section" data-aos="fade">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3"> <%= lang.navbar.contactUs %> </h2>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-md-3 text-center">
+            <p class="mb-4">
+              <span class="icon-room d-block h2 text-primary"></span>
+              <span> <%= lang.home.tirpoliOfficeAdress %>  </span>
+            </p>
+          </div>
+          <div class="col-md-3 text-center">
+            <p class="mb-4">
+              <span class="icon-room d-block h2 text-primary"></span>
+              <span><%= lang.home.benghaziOfficeAdress %></span>
+            </p>
+          </div>
+          <div class="col-md-3 text-center">
+            <p class="mb-4">
+              <span class="icon-phone d-block h2 text-primary"></span>
+              <p href="#">+218926363090</p>
+              <p href="#">+905535728209</p>
+            </p>
+          </div>
+          <div class="col-md-3 text-center">
+            <p class="mb-0">
+              <span class="icon-mail_outline d-block h2 text-primary"></span>
+              <a href="#">youremail@domain.com</a>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-5">
+
+            
+
+            <form action="/<%= lang.currentLang %>/sendMessage" method="POST" class="p-5 bg-white">
+              
+              <h2 class="h4 text-black mb-5"><%= lang.home.sendUsMessage %></h2> 
+
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname"><%= lang.home.fullName %></label>
+                  <input id="fullName" type="text" id="fname" class="form-control ss-item-required" name="fullName" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="lname"><%= lang.home.phone %></label>
+                  <input id="phone" type="number" id="lname" class="form-control" name="phone">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="email"><%= lang.home.email %></label> 
+                  <input id="email" type="email" id="email" class="form-control" name="email">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="subject"><%= lang.home.subject %></label> 
+                  <input id="subject" type="subject" id="subject" class="form-control ss-item-required" name="subject">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="message"><%= lang.home.message %></label> 
+                  <textarea id="message" name="message" id="message" cols="30" rows="7" class="form-control ss-item-required" placeholder="<%= lang.home.note %>" required></textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <button data-toggle="modal" data-target="#exampleModal" type="button" class="btn btn-primary btn-md text-white" id="send_message"> <%= lang.home.submit %> </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center loadingMessage" style="display: none;">
+              <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            <div class="warningMessage text-center">
+              <img src="assets/images/flaticon-svg/svg/warning.svg" alt="Free Website Template by Free-Template.co" class="img-fluid w-25 mb-4">
+              <h2> <%= lang.home.warning %></h2>
+            </div>
+            <div class="messageSent text-center" style="display: none;">
+              <img src="assets/images/flaticon-svg/svg/sent.svg" alt="Free Website Template by Free-Template.co" class="img-fluid w-25 mb-4">
+              <h2> <%= lang.home.successfully %> </h2>
+            </div>
+            <div class="messageError text-center" style="display: none;">
+              <img src="assets/images/flaticon-svg/svg/cancel.svg" alt="Free Website Template by Free-Template.co" class="img-fluid w-25 mb-4">
+              <h2> <%= lang.home.errorMessage %> </h2>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= lang.home.close %></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-5">
+                <h2 class="footer-heading mb-4"> <%= lang.navbar.aboutUs %> </h2>
+                <p><%= lang.home.aboutUsDesc %></p>
+              </div>
+              <div class="col-md-3 ml-auto">
+                <h2 class="footer-heading mb-4"><%= lang.footer.quickLinks %></h2>
+                <ul class="list-unstyled">
+                  <li><a href="#about-section" class="smoothscroll"><%= lang.navbar.aboutUs %></a></li>
+                  <li><a href="#services-section" class="smoothscroll"><%= lang.navbar.ourService %></a></li>
+                  <li><a href="#contact-section" class="smoothscroll"><%= lang.navbar.contactUs %></a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 footer-social">
+                <h2 class="footer-heading mb-4">Follow Us</h2>
+                <a href="https://www.facebook.com/exioscompany" target="_blank" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div> <!-- .site-wrap -->
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/isotope.pkgd.min.js"></script>
+  <script>
+    $('#send_message').click(function(event) {
+      $(".messageSent").hide();
+      $(".messageError").hide();
+      event.preventDefault();
+      var requiredField = false;
+      var fields = $(".ss-item-required");
+
+  $.each(fields, function (i, field) {
+    if (!field.value){
+       requiredField = true
+       $(".warningMessage").show();
+      };
+  });
+
+if(!requiredField) {
+  $(".loadingMessage").show();
+  $(".warningMessage").hide();
+  
+  $.ajax({
+      global: false,
+      type: 'POST',
+      url: "/<%= lang.currentLang %>/sendMessage",
+      dataType: 'html',
+      data: {
+          fullName: $("#fullName").val(),
+          phone: $("#phone").val(),
+          subject: $("#subject").val(),
+          email: $("#email").val(),
+          message: $("#message").val()
+      },
+      success: function (result) {
+        $(".loadingMessage").delay(1).fadeOut("slow");
+        $(".messageSent").show();
+      },
+      error: function (request, status, error) {
+        $(".loadingMessage").delay(1).fadeOut("slow");
+        $(".messageError").show();
+      }
+  });
+}
+});
+</script>
+  
+  <script src="js/main.js"></script>
+
+  
+  </body>
+</html>
