@@ -16,7 +16,7 @@ app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 app.use(flash());
 app.use(session({ cookie: { maxAge: 60000 }, 
-  secret: 'alsana',
+  secret: 'exios',
   resave: false, 
   saveUninitialized: false}));
   
@@ -40,5 +40,5 @@ app.get("*", (req ,res) => {
 
 // add listening server
 app.listen(port, () => {
-    console.log("Exios app listening at http://localhost:" + port);
+    console.log( `Exios app listening at http://localhost:${port}`);
 });
