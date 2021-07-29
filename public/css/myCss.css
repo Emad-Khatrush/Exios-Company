@@ -1,4 +1,86 @@
-/* Base */
+.stepper-wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+  
+  .stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: -50%;
+    z-index: 2;
+  }
+  
+  .stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+  }
+  
+  .stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 6px;
+  }
+  
+  .stepper-item.active {
+    font-weight: bold;
+  }
+  
+  .stepper-item.completed .step-counter {
+    background-color: #4bb543;
+  }
+  
+  .stepper-item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #4bb543;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 3;
+  }
+  
+  .stepper-item:first-child::before {
+    content: none;
+  }
+  .stepper-item:last-child::after {
+    content: none;
+  }
+
+  /* style.css code */
+  /* style.css code */
+  /* style.css code */
+  /* style.css code */
+  /* style.css code */
+  
+  /* Base */
 html {
   overflow-x: hidden;
 }
@@ -226,7 +308,7 @@ body:after {
   text-decoration: underline;
 }
 .site-footer a:hover {
-  color: #007bff;
+  color: white;
 }
 .site-footer ul li {
   margin-bottom: 10px;
@@ -830,7 +912,7 @@ body:after {
 }
 .sticky-wrapper .site-navbar .site-menu > li > a:hover,
 .sticky-wrapper .site-navbar .site-menu > li > a.active {
-  color: #fff !important;
+  color: #006adb;
 }
 .sticky-wrapper.is-sticky .site-navbar {
   background: #fff;
@@ -2120,7 +2202,7 @@ body:after {
   text-decoration: underline;
 }
 .ft-feature-1 a:hover {
-  color: #007bff;
+  color: #fff;
   text-decoration: none;
 }
 .ft-feature-1 .play {
@@ -2554,7 +2636,7 @@ body:after {
 .filters .btn:hover {
   border-color: transparent;
   background: #007bff;
-  color: #007bff;
+  color: #fff;
 }
 .filters .btn.active {
   background: #007bff !important;

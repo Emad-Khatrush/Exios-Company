@@ -26,6 +26,8 @@
 
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
+    <link rel="stylesheet" href="css/myCss.css" type="text/css">
+
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
   
@@ -64,6 +66,9 @@
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="#home-section" class="nav-link"> <%= lang.navbar.home %> </a></li>
+                <li>
+                  <a href="/xtracking/<%= lang.currentLang %>" class="nav-link"><%= lang.navbar.xTracking %></a>
+                </li>
                 <li>
                   <a href="#about-section" class="nav-link"><%= lang.navbar.aboutUs %></a>
                 </li>
@@ -137,6 +142,39 @@
       </a>
     </div>  
 
+    <!-- Xtracking begin -->
+    <div class="site-section cta-big-image" id="xTracking">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-md-8 mb-5 text-center">
+            <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay=""><%= lang.home.xTrackingTitle %></h2>
+          </div>
+          <div class="row">
+            <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
+                
+              <p style="margin-bottom: 20px; font-size: 1.3rem; text-align: <%= lang.currentLang === "ar" ? "right": "left" %>" > <%= lang.home.xTrackingDesc %> </p>
+              
+              <form id="form" action="/xtracking/result/<%= lang.currentLang %>" method="POST" class="p-5 bg-white">
+                <div class="input-group mb-3">
+                  <input maxlength="16" id="serial" name="orderId" type="text" class="form-control" placeholder="<%= lang.home.enterCode %> " aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                  <div class="input-group-append">
+                    <button style="padding: 0px 30px;" class="btn btn-outline-secondary" id="button-addon2"> <%= lang.home.search %>  </button>
+                  </div>
+                </div>
+             </form>
+
+            </div>
+            <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="">
+              <figure class="circle-bg">
+                <img src="assets/images/xTracking.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+              </figure>
+            </div>
+          </div>    
+        </div>
+        
+      </div>  
+    </div>
+    <!-- Xtracking end -->
 
     <div class="site-section cta-big-image" id="about-section">
       <div class="container">
@@ -549,7 +587,7 @@ if(!requiredField) {
 </script>
   
   <script src="js/main.js"></script>
-
+  <script src="js/limitDash.js"></script>
   
   </body>
 </html>

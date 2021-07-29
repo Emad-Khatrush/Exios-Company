@@ -1,6 +1,8 @@
 const express    = require("express"),
       nodemailer = require('nodemailer'),
-      router  = express.Router();
+      router  = express.Router(),
+      Order   = require('../models/order'),
+      middleware = require('../middleware');
       
 const langAR  = require("../lang/ar");
 const langEN  = require("../lang/en");
@@ -9,6 +11,42 @@ const langEN  = require("../lang/en");
 router.get("/", (req, res) => {
     res.render('home', { lang: langAR });
 });
+
+// xtracking Result Page route
+router.get("/xtracking/:id/:lang", async (req, res) => {
+  const orderId = req.params.id;
+  let lang = langAR;
+  if( req.params.lang === 'en') {
+    lang = langEN;
+  }
+  try {
+    const order = await Order.findOne({ orderId });
+    res.render('trackResult',{ lang, order });
+  } catch (error) {
+    console.log(error.message);
+    res.redirect('back');
+  }
+});
+// xtracking Result Page route
+router.post("/xtracking/result/:lang", async (req, res) => {
+  try {
+    const orderId = req.body.orderId;
+    let lang = langAR;
+    if( req.params.lang === 'en') {
+      lang = langEN;
+    }
+    const order = await Order.findOne({ orderId });
+    if(!order) {
+      req.flash('error', 'رقم الطلبية غير موجود، الرجاء التأكد والمحاولة مرة اخرى')
+      return res.redirect(`/xtracking/${req.params.lang}`);
+    }
+    res.render('trackResult', { lang, order });
+  } catch (error) {
+    console.log(error.message);
+    res.redirect(`/xtracking/${req.params.lang}`);
+  }
+});
+
 // home lang route
 router.get("/:lang", (req, res) => {
     if(req.params.lang === "en"){
@@ -17,6 +55,16 @@ router.get("/:lang", (req, res) => {
         return res.redirect("/");
     }
 });
+
+// xtracking Page route
+router.get("/xtracking/:lang", (req, res) => {
+  if(req.params.lang === "en"){
+      return res.render('xTracking', { lang: langEN });
+  }else{
+      return res.render('xTracking', { lang: langAR });
+  }
+});
+
 // contact us
 router.post("/:lang/sendMessage", (req, res) => {
     var transporter = nodemailer.createTransport({

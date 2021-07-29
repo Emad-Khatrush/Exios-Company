@@ -4,7 +4,8 @@ module.exports = {
         home: "Home",
         contactUs: "Contact Us",
         ourService: "Our Services",
-        aboutUs: "About Us"
+        aboutUs: "About Us",
+        xTracking: "X-Tracking",
     },
     home: {
         exiosCompany: "Exios Company for import and export services",
@@ -50,6 +51,15 @@ module.exports = {
         successfully: "The message has been sent successfully",
         errorMessage: "An error occurred while sending the message, please try again later",
         close: "Close",
+        xTracking: "X-Tracking",
+        xTrackingTitle: "X-Tracking Feature",
+        xTrackingDesc: "When you start an order through us, you will be given a tracking code through which you will be able to track your order in detail, if the goods have been paid? Or has it been shipped? And when will you arrive? All the details will be in the pictures to be with us moment by moment",
+        enterCode: "Please enter the tracking code here",
+        search: "Search",
+    },
+    xTrackingPage: {
+        xTrackingTitle: "X-Tracking Feature",
+        searchByXTracking: "Search your goods by X-Tracking Feature",
     },
     footer: {
         quickLinks: "Quick Links",

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="<%= lang.currentLang %>">
+  <head>
+    <title> <%= lang.home.exiosCompany %>  </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="/css/aos.css" type="text/css">
+
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <link rel="stylesheet" href="/css/myCss.css" type="text/css">
+
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  
+
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+   
+    
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col-6 col-xl-2">
+            <a href="#" class="h2 mb-0"> <img style="width: 160px; height: 70px;" src="/assets/images/exios-logo.png"> </a>
+          </div>
+
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li><a href="/#home-section" class="nav-link"> <%= lang.navbar.home %> </a></li>
+                <li>
+                  <a href="/xtracking/<%= lang.currentLang %>" class="nav-link"><%= lang.navbar.xTracking %></a>
+                </li>
+                <li>
+                  <a href="/#about-section" class="nav-link"><%= lang.navbar.aboutUs %></a>
+                </li>
+                <li>
+                  <a href="/#services-section" class="nav-link"><%= lang.navbar.ourService %></a>
+                </li>
+                <li><a href="/#contact-section" class="nav-link"><%= lang.navbar.contactUs %></a></li>
+                <li>
+                  <a href="/xtracking/<%= lang.currentLang === 'en' ? 'ar' : 'en' %>"> 
+                    <% if(lang.currentLang === 'en'){ %>
+                    <img width="40px" height="40px" src="/assets/images/libya.png" /> Arabic 
+                   <% }else{ %>
+                    <img width="40px" height="40px" src="/assets/images/united-kingdom.png" /> English
+                   <% } %> 
+                  </a>
+                </li>
+                <li class="social"><a href="https://www.facebook.com/exioscompany" target="_blank" class="nav-link"><span class="icon-facebook"></span></a></li>
+              </ul>
+            </nav>
+          </div>
+
+
+          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+
+        </div>
+      </div>
+      
+    </header>
+
+    <div class="site-blocks-cover overlay" style="background-image: url(/assets/images/home1.jpg);" data-aos="fade" id="home-section">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-10 mt-lg-5 text-center">
+            <div class="single-text owl-carousel">
+              <div class="slide">
+                  <form action="/xtracking/result/<%= lang.currentLang %>" method="POST" id="form">
+                    <h1 style="font-size: 2.5rem;" class="text-uppercase" data-aos="fade-up"> <%= lang.xTrackingPage.xTrackingTitle %> </h1>
+                    <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100"><%= lang.xTrackingPage.searchByXTracking %></p>
+                    <div data-aos="fade-up" data-aos-delay="100">
+                      <!-- flash messages -->
+                        <div class="container">
+                          <% if(error && error.length > 0){ %>
+                          <div class="alert alert-danger" role="alert">
+                            <%= error %>
+                          </div>
+                        <% } %>
+                        <% if(success && success.length > 0){ %>
+                          <div class="alert alert-success" role="alert">
+                            <%= success %>
+                          </div>
+                          <% } %>
+                        </div>
+                      <!-- flash messages end-->
+                        <div style="width: 80%; margin: auto;" class="input-group mb-3">
+                            <input maxlength="16" id="serial" type="text" name="orderId" class="form-control" placeholder="<%= lang.home.enterCode %> " aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                            <div class="input-group-append">
+                              <button style="padding: 0px 30px;" class="btn btn-outline-secondary" > <%= lang.home.search %>  </button>
+                            </div>
+                          </div>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    </div>  
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-5">
+                <h2 class="footer-heading mb-4"> <%= lang.navbar.aboutUs %> </h2>
+                <p><%= lang.home.aboutUsDesc %></p>
+              </div>
+              <div class="col-md-3 ml-auto">
+                <h2 class="footer-heading mb-4"><%= lang.footer.quickLinks %></h2>
+                <ul class="list-unstyled">
+                  <li><a href="/#about-section" class="smoothscroll"><%= lang.navbar.aboutUs %></a></li>
+                  <li><a href="/#services-section" class="smoothscroll"><%= lang.navbar.ourService %></a></li>
+                  <li><a href="/#contact-section" class="smoothscroll"><%= lang.navbar.contactUs %></a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 footer-social">
+                <h2 class="footer-heading mb-4">Follow Us</h2>
+                <a href="https://www.facebook.com/exioscompany" target="_blank" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div> <!-- .site-wrap -->
+
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  <script src="/js/jquery-ui.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+  <script src="/js/jquery.countdown.min.js"></script>
+  <script src="/js/jquery.easing.1.3.js"></script>
+  <script src="/js/aos.js"></script>
+  <script src="/js/jquery.fancybox.min.js"></script>
+  <script src="/js/jquery.sticky.js"></script>
+  <script src="/js/isotope.pkgd.min.js"></script>
+  <script>
+    $('#send_message').click(function(event) {
+      $(".messageSent").hide();
+      $(".messageError").hide();
+      event.preventDefault();
+      var requiredField = false;
+      var fields = $(".ss-item-required");
+
+  $.each(fields, function (i, field) {
+    if (!field.value){
+       requiredField = true
+       $(".warningMessage").show();
+      };
+  });
+
+if(!requiredField) {
+  $(".loadingMessage").show();
+  $(".warningMessage").hide();
+  
+  $.ajax({
+      global: false,
+      type: 'POST',
+      url: "/<%= lang.currentLang %>/sendMessage",
+      dataType: 'html',
+      data: {
+          fullName: $("#fullName").val(),
+          phone: $("#phone").val(),
+          subject: $("#subject").val(),
+          email: $("#email").val(),
+          message: $("#message").val()
+      },
+      success: function (result) {
+        $(".loadingMessage").delay(1).fadeOut("slow");
+        $(".messageSent").show();
+      },
+      error: function (request, status, error) {
+        $(".loadingMessage").delay(1).fadeOut("slow");
+        $(".messageError").show();
+      }
+  });
+}
+});
+</script>
+  
+  <script src="/js/main.js"></script>
+  <script src="/js/limitDash.js"></script>
+  
+  </body>
+</html>

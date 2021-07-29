@@ -4,7 +4,8 @@ module.exports = {
         home: "الصفحة الرئيسية",
         contactUs: "تواصل معنا",
         ourService: "خدماتنا",
-        aboutUs: "من نحن"
+        aboutUs: "من نحن",
+        xTracking: "X-Tracking",
     },
     home: {
         exiosCompany: "شركة اكسيوس لخدمات الاستيراد والتصدير",
@@ -50,6 +51,15 @@ module.exports = {
         successfully: "تم ارسال الرساله بنجاح",
         errorMessage: "حدث خطأ اثناء ارسال الرسالة، الرجاء المحاولة مره اخرى لاحقا",
         close: "اغلاق",
+        xTracking: "X-Tracking",
+        xTrackingTitle: "X-Tracking ميزة",
+        xTrackingDesc: "عند البدأ في طلبية عن طريقنا، سيعطى لك كود تتبع من خلاله ستستطيع تتبع الطلبية الخاصة بك بالتفصيل، اذا كانت قد تم دفع البضائع؟ او هل تم شحنه؟ ومتى ستصل؟ كل التفاصيل ستكون موجوده بالصور لتكون معنا لحظة بالحظة",
+        enterCode: "الرجاء ادخال كود التتبع هنا",
+        search: "ابحث",
+    },
+    xTrackingPage: {
+        xTrackingTitle: "X-Tracking ميزة",
+        searchByXTracking: " X-Tracking ابحث على طلبك بواسطة",
     },
     footer: {
         quickLinks: "روابط السريعة",

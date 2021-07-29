@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Orders</title>
+
+    <link rel="stylesheet" href="/css/orders.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+
+    <!-- Just an image -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+        <img src="/assets/images/exios-logo.png" width="170" height="60" alt="">
+        </a>
+        <div>
+            <a href="/"> Go Home </a>
+            <a style="margin: 20px;" href="/admin/orders"> My Orders </a>
+        </div>
+    </nav>
+    
+    <h1 class="text-center mt-5"> All Orders </h1>
+    <div class="container text-right">
+        <a href="/admin/addOrder" class="btn btn-primary">Add New Order</a>
+    </div>
+
+    <div class="container-fluid my-5 d-flex justify-content-center">
+        <div class="card card-1">
+            <% orders.forEach((order, i) => { %>
+            <div class="card-body">
+                <div class="row justify-content-between mb-3">
+                    <div class="col-auto">
+                        <h6 class="color-1 mb-0 change-color">Order Tracking Number: <%= order.orderId %> </h6>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card card-2">
+                                <div class="card-body">
+                                    <div class="media">
+                                        <div class="sq align-self-center "> <img class="img-fluid my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="https://image.shutterstock.com/image-photo/closed-cardboard-box-taped-isolated-600w-543551653.jpg" width="150" height="80" /> </div>
+                                        <div class="media-body my-auto text-right">
+                                            <div class="row my-auto flex-column flex-md-row">
+                                                <div class="col my-auto">
+                                                    <h6 class="mb-0"> <%= order.customerName %> </h6>
+                                                </div>
+                                                <div class="col-auto my-auto"> <small> <%= order.products %> </small></div>
+                                                <div class="col my-auto"> <small> <%= order.fromWhere + " - " + order.toWhere %>  </small></div>
+                                                <div class="col my-auto"> <small><%= order.quantity %>  :العدد  </small></div>
+                                                <div class="col my-auto">
+                                                    <h6 class="mb-0"> <%= order.totalPrice %> USD  </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="my-3 ">
+                                    <div class="row">
+                                        <div class="col-md-3 mb-3"> 
+                                            <h5> #<%= i + 1 %>  <span><i class=" ml-2 fa fa-refresh" aria-hidden="true"></i></span></h5> 
+                                            <% if(order.isFinished) { %>
+                                                <div style="font-size: 0.9rem; width: 110px; text-align: center; padding: 0;" class="alert alert-success">
+                                                    Order Finished
+                                                  </div>
+                                            <% } else { %>
+                                                <div style="font-size: 0.9rem; width: 80px; text-align: center; padding: 0;" class="alert alert-primary">
+                                                    On Work
+                                                  </div>
+                                            <% } %> 
+                                        </div>
+                                        <div class="col">
+                                                <div class="col-auto flex-col-auto text-right"> 
+                                                    <a href="/admin/updateOrder/<%= order.orderId %>" class="btn btn-warning">Edit Or Update Order</a>
+                                                    <a href="/xtracking/<%= order.orderId %>/ar" class="btn btn-primary" style="cursor: pointer;">See Details</a>
+                                                    <i class="fa fa-circle"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %> 
+                </div>
+
+        </div>    
+</body>
+</html>
