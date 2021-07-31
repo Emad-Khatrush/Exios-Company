@@ -26,21 +26,29 @@ app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 app.use(methodOverride('_method'));
 app.use(flash());
-app.use(session({ cookie: { maxAge: 60000 }, 
+app.use(session({
   secret: 'exios',
   resave: false, 
   saveUninitialized: false}));
   
-  
   // connect mongoose
-  mongoose.connect(dbURL,
-    { useNewUrlParser: true,
-      useUnifiedTopology: true }).then(res => {
-        console.log("Connected to MongoDB");
-      })
-      .catch(err => {
-        console.log(err.mesage);
-      })
+mongoose.connect(dbURL,
+  { useNewUrlParser: true,
+    useUnifiedTopology: true }).then(res => {
+      console.log("Connected to MongoDB");
+    })
+    .catch(err => {
+      console.log(err.mesage);
+    })
+  
+  app.use( (req, res, next) => {
+    res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    res.locals.moment = require('moment');
+    next();
+  });
+  
       
       // initialize Passport
       app.use(passport.initialize());
@@ -49,13 +57,6 @@ app.use(session({ cookie: { maxAge: 60000 },
       passport.serializeUser(User.serializeUser());
       passport.deserializeUser(User.deserializeUser());
       
-      app.use( (req, res, next) => {
-        res.locals.currentUser = req.user;
-        res.locals.error = req.flash("error");
-        res.locals.success = req.flash("success");
-        res.locals.moment = require('moment');
-        next();
-      });
 //-------------------------------
 //            Routes
 //-------------------------------
@@ -66,19 +67,19 @@ const authRoute = require("./routers/auth");
 app.use(indexRoute);
 app.use('/admin', authRoute);
 
-// app.get("*", (req ,res) => {
-//   //  const userData = new User({
-//   //   username: "admin@exioslibya.com",
-//   //   isAdmin: true
-//   // });
-//   // User.register(userData, "123456", function(err, user){
-//   //   if (err) {
-//   //     console.log(err);
-//   //   }
-//   //   console.log("added");
-//   // })
-//   res.redirect("/");
-// });
+app.get("*", (req ,res) => {
+  //  const userData = new User({
+  //   username: "admin@exioslibya.com",
+  //   isAdmin: true
+  // });
+  // User.register(userData, "123456", function(err, user){
+  //   if (err) {
+  //     console.log(err);
+  //   }
+  //   console.log("added");
+  // })
+  res.redirect("/");
+});
 
 // add listening server
 app.listen(port, () => {

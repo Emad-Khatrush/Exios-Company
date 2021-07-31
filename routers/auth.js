@@ -167,6 +167,11 @@ router.post('/updateOrderStatus/:id', middleware.isLogin, async (req, res) => {
 router.get('/login', (req, res) => {
     res.render('admin');
 });
+// logout route
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/admin/login");
+});
 // Login Route: POST
 router.post("/login",
 passport.authenticate("local",{
