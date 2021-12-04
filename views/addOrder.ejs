@@ -1,129 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Orders</title>
 
-    <link rel="stylesheet" href="/css/addOrder.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Orders</title>
+
+  <link rel="stylesheet" href="/css/addOrder.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
+
 <body>
 
-    <!-- Just an image -->
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="/">
-        <img src="/assets/images/exios-logo.png" width="170" height="60" alt="">
-        </a>
-        <div>
-            <a href="/"> Go Home </a>
-            <a style="margin: 20px;" href="/admin/orders"> My Orders </a>
-        </div>
-    </nav>
-    
-    <h1 class="text-center mt-5 mb-5"> Create An Order </h1>
+  <!-- Just an image -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+      <img src="/assets/images/exios-logo.png" width="170" height="60" alt="">
+    </a>
+    <div>
+      <a href="/"> Go Home </a>
+      <a style="margin: 20px;" href="/admin/orders"> My Orders </a>
+    </div>
+  </nav>
 
+  <h1 class="text-center mt-5 mb-5"> Create An Order </h1>
+
+  <div class="container">
+
+    <!-- flash messages -->
     <div class="container">
-
-        <!-- flash messages -->
-        <div class="container">
-            <% if(error && error.length > 0){ %>
-            <div class="alert alert-danger" role="alert">
-              <%= error %>
-            </div>
-          <% } %>
-          <% if(success && success.length > 0){ %>
+      <% if(error && error.length> 0){ %>
+        <div class="alert alert-danger" role="alert">
+          <%= error %>
+        </div>
+        <% } %>
+          <% if(success && success.length> 0){ %>
             <div class="alert alert-success" role="alert">
               <%= success %>
             </div>
             <% } %>
-          </div>
-          <!-- flash messages end-->
-
-        <form class="row g-3" action="/admin/addOrder" method="POST">
-
-            <div class="col-12 mb-2">
-                <h4> Customer Information </h4>
-            </div>
-            <div class="col-md-4">
-              <label for="fullName" class="form-label">Full Name</label>
-              <input type="text" name="customerName" class="form-control" id="fullName" required>
-            </div>
-            <div class="col-md-4 mb-5">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" name="customerEmail" class="form-control" id="email" required>
-            </div>
-            <div class="col-md-4 mb-5">
-                <label for="customerPhone" class="form-label">Phone</label>
-                <input type="number" name="customerPhone" class="form-control" id="customerPhone" required>
-            </div>
-
-            <div class="col-12 mb-2">
-                <h4> Order Details </h4>
-            </div>
-            <div class="col-md-6">
-              <label for="product" class="form-label"> Product Details</label>
-              <input type="text" name="products" class="form-control" id="product" required>
-            </div>
-            <div class="col-md-6">
-              <label for="quantity" class="form-label">Quantity</label>
-              <input type="number" class="form-control" name="quantity" id="quantity" required>
-            </div>
-
-            <div class="col-md-6">
-              <label for="fromWhere" class="form-label">From Where</label>
-              <input type="text" name="fromWhere" class="form-control" id="fromWhere" required>
-            </div>
-            <div class="col-md-6">
-                <label for="toWhere" class="form-label">To Where</label>
-                <input type="text" name="toWhere" class="form-control" id="toWhere" required>
-            </div>
-
-            <div class="col-md-4">
-                <label for="totalPrice" class="form-label">Total Price</label>
-                <input type="number" step="any" name="totalPrice" class="form-control" id="totalPrice" required>
-            </div>
-
-            <div class="col-md-3">
-                <label for="officePlace" class="form-label">Office Place</label>
-                <select class="form-select p-2 " name="officePlace" aria-label="Default select example" id="officePlace">
-                    <option selected disabled>Open this select menu</option>
-                    <option value="مكتب طرابلس"> Tripoli Office</option>
-                    <option value="مكتب بنغازي">Benghazi Office</option>
-                  </select>
-            </div>
-
-            <div class="col-md-2">
-              <label for="estimatedDelivery" class="form-label"> Estimated Delivery </label>
-              <input type="date" class="form-control" name="estimatedDelivery" id="estimatedDelivery">
-            </div>
-            
-            
-            <div class="col-12 mt-3">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="isPayment" name="isPayment">
-                  <label class="form-check-label" for="isPayment">
-                    Is a payment order?
-                  </label>
-                </div>
-              </div>
-              <div class="col-12 mb-4">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="isShipment" name="isShipment">
-                    <label class="form-check-label" for="isShipment">
-                        Is a shipment order?
-                    </label>
-                  </div>
-                </div>
-
-            <div class="col-12 mb-5">
-              <button type="submit" class="btn btn-primary">Create an Order</button>
-            </div>
-          </form>
     </div>
-    
+    <!-- flash messages end-->
 
-    
+    <form class="row g-3" action="/admin/addOrder" method="POST">
+
+      <div class="col-12 mb-2">
+        <h4> Customer Information </h4>
+      </div>
+      <div class="col-md-4">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" name="customerName" class="form-control" id="fullName" required>
+      </div>
+      <div class="col-md-4 mb-5">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="customerEmail" class="form-control" id="email" required>
+      </div>
+      <div class="col-md-4 mb-5">
+        <label for="customerPhone" class="form-label">Phone</label>
+        <input type="number" name="customerPhone" class="form-control" id="customerPhone" required>
+      </div>
+
+      <div class="col-12 mb-2">
+        <h4> Order Details </h4>
+      </div>
+      <div class="col-md-6">
+        <label for="product" class="form-label"> Product Details</label>
+        <input type="text" name="products" class="form-control" id="product" required>
+      </div>
+      <div class="col-md-6">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input type="number" class="form-control" name="quantity" id="quantity" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="fromWhere" class="form-label">From Where</label>
+        <input type="text" name="fromWhere" class="form-control" id="fromWhere" required>
+      </div>
+      <div class="col-md-6">
+        <label for="toWhere" class="form-label">To Where</label>
+        <input type="text" name="toWhere" class="form-control" id="toWhere" required>
+      </div>
+
+      <div class="col-md-4">
+        <label for="totalPrice" class="form-label">Total Price</label>
+        <input type="number" step="any" name="totalPrice" class="form-control" id="totalPrice" required>
+      </div>
+
+      <div class="col-md-3">
+        <label for="officePlace" class="form-label">Office Place</label>
+        <select class="form-select p-2 " name="officePlace" aria-label="Default select example" id="officePlace">
+          <option selected disabled>Open this select menu</option>
+          <option value="مكتب طرابلس"> Tripoli Office</option>
+          <option value="مكتب بنغازي">Benghazi Office</option>
+        </select>
+      </div>
+
+      <div class="col-md-3" id="shipmentMeth" style="display: none;">
+        <label for="shipmentMethod" class="form-label">Shipment Method</label>
+        <select class="form-select p-2 " name="shipmentMethod" aria-label="Default select example" id="shipmentMethod"
+          required>
+          <option selected disabled>Open this select menu</option>
+          <option value="air"> By Air</option>
+          <option value="sea">By Sea</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label for="estimatedDelivery" class="form-label"> Estimated Delivery </label>
+        <input type="date" class="form-control" name="estimatedDelivery" id="estimatedDelivery">
+      </div>
+
+
+      <div class="col-12 mt-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="isPayment" name="isPayment">
+          <label class="form-check-label" for="isPayment">
+            Is a payment order?
+          </label>
+        </div>
+      </div>
+      <div class="col-12 mb-4">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="isShipment" name="isShipment" onclick="toggleShipmentInput()">
+          <label class="form-check-label" for="isShipment">
+            Is a shipment order?
+          </label>
+        </div>
+      </div>
+
+      <div class="col-12 mb-5">
+        <button type="submit" class="btn btn-primary">Create an Order</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+  <script>
+    function toggleShipmentInput() {
+      // if order has a shipment method the options will show
+      var checkBox = document.getElementById("isShipment");
+      var input = document.getElementById("shipmentMeth");
+      console.log(checkBox.checked);
+      if (checkBox.checked == true) {
+        input.style.display = "block";
+      } else {
+        input.style.display = "none";
+      }
+    }
+  </script>
+
 </body>
+
 </html>

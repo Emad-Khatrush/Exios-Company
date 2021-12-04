@@ -32,14 +32,20 @@ app.use(session({
   saveUninitialized: false}));
   
   // connect mongoose
-mongoose.connect(dbURL,
-  { useNewUrlParser: true,
-    useUnifiedTopology: true }).then(res => {
-      console.log("Connected to MongoDB");
-    })
-    .catch(err => {
-      console.log(err.mesage);
-    })
+// mongoose.connect(dbURL,
+//   { useNewUrlParser: true,
+//     useUnifiedTopology: true }).then(res => {
+//       console.log("Connected to MongoDB");
+//     })
+//     .catch(err => {
+//       console.log(err.mesage);
+//     })
+
+mongoose.connect("mongodb://localhost/exios-test",
+{ useNewUrlParser: true,
+  useUnifiedTopology: true }, function(){
+    console.log("mongodb connected");
+  });
   
   app.use( (req, res, next) => {
     res.locals.currentUser = req.user;

@@ -10,8 +10,16 @@ const router   = require("express").Router(),
       
 // orders Route: Get
 router.get('/orders', middleware.isLogin, async (req, res) => {
-    const orders = await Order.find({});
-    res.render('orders', { orders });
+    let orders;
+    let navNum = 1;
+    
+    if (req.query.finish === 'finishedOrders') {
+      orders = await Order.find({ isFinished: true });
+      navNum = 2;
+    } else {
+      orders = await Order.find({isFinished: false});
+    }
+    res.render('orders', { orders, navNum });
 });
 
 // add order Route: Get
@@ -76,7 +84,7 @@ router.get('/updateOrder/:id', middleware.isLogin, async (req, res) => {
 // Update order: PUT
 router.put('/updateOrder/:id', middleware.isLogin, async (req, res) => {
   const { customerName, customerEmail, totalPrice, fromWhere, customerPhone,
-    toWhere, products, quantity, estimatedDelivery, isShipment, isPayment, officePlace } = req.body;
+    toWhere, products, quantity, estimatedDelivery, isShipment, isPayment, shipmentMethod, adminNote } = req.body;
   const orderId = req.params.id;
 
   try {
@@ -90,11 +98,13 @@ router.put('/updateOrder/:id', middleware.isLogin, async (req, res) => {
       toWhere,
       products,
       quantity,
+      adminNote,
+      shipmentMethod: shipmentMethod ? shipmentMethod : '',
       estimatedDelivery: estimatedDelivery || undefined,
       isShipment: isShipment === 'on' ? true : false,
       isPayment: isPayment === 'on' ? true : false,
     };
-    
+
     await Order.findOneAndUpdate({ orderId }, {...newOrder});
 
     req.flash('success', 'Order updated successfully');
@@ -152,8 +162,9 @@ router.post('/updateOrderStatus/:id', middleware.isLogin, async (req, res) => {
         subject: "اشعار جديد من شركة اكسيوس",
         html: data,
       };
-  
-      await transporter.sendMail(mailOptions);
+      if (!(order.customerEmail.toLowerCase() === 'nomail@mail.com'.toLowerCase())) {
+        await transporter.sendMail(mailOptions);
+      }
 
     req.flash('success', 'Order Status updated successfully');
     res.redirect(`/admin/updateOrder/${orderId}`);
