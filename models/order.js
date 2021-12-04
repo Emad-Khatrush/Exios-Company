@@ -15,6 +15,8 @@ const orderSchema = new mongoose.Schema({
     estimatedDelivery: Date,
     isShipment: { type: Boolean, required: true },
     isPayment: { type: Boolean, required: true },
+    shipmentMethod: String,
+    adminNote: String,
     status: [{
         date: Date,
         movementPlace: String,
@@ -22,6 +24,6 @@ const orderSchema = new mongoose.Schema({
     }],
     orderState: { type: Number, default: 0 },
     isFinished: { type: Boolean, required: true, default: false }
-}, {timestamps: true});
+}, { timestamps: true });
 
 module.exports = mongoose.model("Order", orderSchema);

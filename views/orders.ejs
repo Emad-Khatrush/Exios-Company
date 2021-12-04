@@ -29,11 +29,25 @@
 
     <div class="container-fluid my-5 d-flex justify-content-center">
         <div class="card card-1">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link <%= navNum === 1 || navNum === null ? 'active' : '' %>" aria-current="page" href="/admin/orders">On Work Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= navNum === 2 ? 'active' : '' %>" aria-current="page" href="/admin/orders?finish=finishedOrders">Finished Orders</a>
+                  </li>
+                
+              </ul>
             <% orders.forEach((order, i) => { %>
             <div class="card-body">
-                <div class="row justify-content-between mb-3">
-                    <div class="col-auto">
-                        <h6 class="color-1 mb-0 change-color">Order Tracking Number: <%= order.orderId %> </h6>
+                <div class="row justify-content-between mb-3"">
+                    <div class="col-auto d-flex" style="align-items: baseline;">
+                        <h6 class="color-1 mb-0 change-color">Order Tracking Number: <%= order.orderId %></h6>
+                        <!-- <button onclick="copy(order.shipmentMethod, order.orderId)" type="button" id="shippingMarkMessage" class="btn btn-outline-info btn-sm ml-2">Copy Shipping Mark</button> -->
+                        <% if (order.isShipment && order.shipmentMethod) { %>
+                            <span class="badge bg-info text-dark" style="font-size: 15px; margin-left: 5px;"> <%= order.shipmentMethod === 'air' ? 'شحن جوي' : 'شحن بحري' %>  </span>
+                        <% } %>
+
                     </div>
                     
                 </div>
@@ -70,6 +84,17 @@
                                                     On Work
                                                   </div>
                                             <% } %> 
+                                            <% // display the current step of order
+                                            const orderSteps = [ "تجهيز الطلبية","اتمام الشراء", "شحن الى مخزن","الشحن الى ليبيا", "وصول البضائع", "استلام البضائع" ];
+                                            const currentOrderStep = orderSteps[order.orderState]; 
+                                            let given = moment(order.status[order.status.length - 1].date, "YYYY-MM-DD");
+                                            let current = moment(new Date(),"YYYY-MM-DD") 
+                                            let result = moment.duration(given.diff(current)).asDays();
+                                            result = result < 0 ? 'يوم 1' : `${Math.floor(result)} ايام` %> 
+                                            <div style="font-size: 0.9rem; width: 200px; text-align: center; padding: 0;" class="alert alert-warning">
+                                                <%= currentOrderStep %> - <%= result %>
+                                            </div>
+                                            
                                         </div>
                                         <div class="col">
                                                 <div class="col-auto flex-col-auto text-right"> 
@@ -88,5 +113,18 @@
                 </div>
 
         </div>    
+        <script>
+            // const orders = '<%- JSON.stringify(orders) %>';
+            // const btn = document.getElementById("shippingMarkMessage");
+            // function copy(method, code){
+            //     console.log(method);
+            //     var inp =document.createElement('input');
+            //     document.body.appendChild(inp)
+            //     inp.value = `Hello, we placed the order now, please write this on the cartons, it is our shipping mark => Exios - by ${method}(${code})`;
+            //     inp.select();
+            //     document.execCommand('copy',false);
+            //     inp.remove();
+            // }
+        </script>
 </body>
 </html>
