@@ -88,7 +88,7 @@
               <div class="col-md-3">
                 <label for="shipmentMethod" class="form-label">Shipment Method</label>
                 <select class="form-select p-2 " name="shipmentMethod" aria-label="Default select example" id="shipmentMethod">
-                    <option selected disabled>--------<%= order.shipmentMethod %>-------</option>
+                    <option selected disabled value="<%= order.shipmentMethod %>">--------<%= order.shipmentMethod %>-------</option>
                     <option value="air"> By Air</option>
                     <option value="sea">By Sea</option>
                   </select>
